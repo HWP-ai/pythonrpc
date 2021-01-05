@@ -1,11 +1,11 @@
 {
   "name": "pythonrpc-jsclient",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Call python internal in nodejs. The javascript client side.",
-  "main": "",
-  "scripts": {
-    "test": ""
-  },
+  "main": "src/client.js",
+  "files": [
+	"src/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-list-553108/pythonrpc.git"
@@ -19,7 +19,7 @@
     "url": "https://github.com/repo-list-553108/pythonrpc/issues"
   },
   "homepage": "https://github.com/repo-list-553108/pythonrpc#readme",
-  "devDependencies": {
+  "dependencies": {
     "request": "^2.88.2"
   }
 }
