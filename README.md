@@ -1,6 +1,8 @@
 pythonrpc
 ==========
 
+![架构图](doc/resources/arch-1.png)
+
 在 JavaScript 环境中使用影子对象调用 python 的模块、实例、属性和方法。
 
 Calling python module, instance, attribute or function in JavaScript Runtime with a shadowed object.
