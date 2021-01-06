@@ -153,7 +153,3 @@ def debuginfo():
         'success': 1,
         'debuginfo': repr(debuginfo)
     })
-
-if __name__ == '__main__':
-    #help(app.run)
-    app.run(port=88881, debug=True)
