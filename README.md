@@ -48,7 +48,7 @@ open_session 返回的是一个封装了的 Session 类。这个类包括如下�
 | $promise = $x.del_ref()                   |  切断 $x 所对应的python对象和影子对象的关联。如果不手动切断关联，可能会导致python环境的内存浪费，但在相关的 session.del() 启动的时候也会自动清理。 |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| |
 
-在 session.require_module(name) 中，通过 $promise.resolve() 的 $mod 就是一个影子对象。例如下面这段 python 代码：
+在 $promise = session.require_module(name) 中，通过 $promise.resolve($mod) 的 $mod 对象就是一个影子对象。例如下面这段 python 代码：
 
 ```python
 import random
@@ -147,7 +147,7 @@ a['x'] = b
 b['y'] = a
 ```
 
-这类的对象如果要求返回到 JavaScript ，由于在进行 json 编码的时候语义会比较诡异，会采取一些消极的策略处理，因此不建议在python到JavaScript的返回值中使用这样子的数字结构。但只存在于python环境则没有关系。
+这类的对象如果要求返回到 JavaScript ，由于在进行 json 编码的时候语义会比较诡异，会采取一些消极的策略处理，因此不建议在python到JavaScript的返回值中使用这样子的数据结构。但只存在于python环境则没有关系。
 
 长期来看，我们也不准备解决这个问题，而是直接填 null 。这是因为这个库主要是为了必要的在JavaScript 对python的调用，而不是可以完美地在JavaScript中整合python。
 
