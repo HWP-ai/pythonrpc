@@ -164,5 +164,10 @@ b['y'] = a
 
 可以访问 [sample](sample/) 。
 
+文档翻译
+-----
 
+欢迎文档翻译，可直接发 pull request 。
+
+Welcome a translation for documentation, just send a pull request.
 
