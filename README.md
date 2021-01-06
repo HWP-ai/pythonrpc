@@ -44,11 +44,11 @@ open_session 返回的是一个封装了的 Session 类。这个类包括如下�
 |:------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
 | $number = $x.id()                         |  返回 $x 所对应的python对象的 id 。这个值等于 python 中的 id(obj) 的值。                                                  |
 | $promise = $x.attr(name)                  |  返回 $x 所对应的python对象的名为 name 的属性的影子对象。即对应于 python 中的 obj.attr 。                                   |
-| $promise = $x.call(args, kwargs)          |  控制$x 所对应的python对象以args和kwargs做一次函数执行。即对应于 python 中的 fun(*args, \*\*kwargs) 。                      |
+| $promise = $x.call(args, kwargs)          |  控制$x 所对应的python对象以args和kwargs做一次函数执行。即对应于 python 中的 fun(*args, \*\*kwargs) ，并接收结果。          |
 | $promise = $x.del_ref()                   |  切断 $x 所对应的python对象和影子对象的关联。如果不手动切断关联，可能会导致python环境的内存浪费，但在相关的 session.del() 启动的时候也会自动清理。 |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| |
 
-在 $promise.session.require_module(name) 中，通过 $promise.resolve() 的 $mod 就是一个影子对象。例如下面这段 python 代码：
+在 session.require_module(name) 中，通过 $promise.resolve() 的 $mod 就是一个影子对象。例如下面这段 python 代码：
 
 ```python
 import random
@@ -67,7 +67,7 @@ async function getRandomFromPython(){
 	// python中将会 
 	//     > import random
 	// 这里的 random 是一个操作python中的random的影子对象
-	&nbsp; &nbsp; &nbsp; &nbsp;
+	
 	var randint = await random.attr('randint');
 	// 获得python中的random.randint的影子对象
 	
